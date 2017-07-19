@@ -10,7 +10,7 @@ function _interopRequireDefault(obj) {
 
 // Sockets
 var socket = _socket2.default.connect("https://45.55.188.226:5555");
-getLocation();
+//getLocation();
 
 // End sockets
 
