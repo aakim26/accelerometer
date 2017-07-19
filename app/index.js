@@ -52,19 +52,20 @@ var socket = _socket2.default.connect("http://45.55.188.226:5555");
 
 // Accelerometer
 var x, y, z;
+var data;
 setInterval(function () {
 	if (window.DeviceMotionEvent) {
 		window.ondevicemotion = function (e) {
 			if (e.acceleration) {
-				x = e.acceleration.x;
-				y = e.acceleration.y;
-				z = e.acceleration.z;
-				socket.emit("data", { x: x, y: y, z: z });
+				data = { x: e.acceleration.x, y: e.acceleration.y, z: e.acceleration.z };
+				socket.emit("data", data, function(){
+					console.log(data);
+				});
 			} else if (e.accelerationIncludingGravity) {
-				x = e.accelerationIncludingGravity.x;
-				y = e.accelerationIncludingGravity.y;
-				z = e.accelerationIncludingGravity.z;
-				socket.emit("data", { x: x, y: y, z: z });
+				data = { x: e.accelerationIncludingGravity.x, y: e.accelerationIncludingGravity.y, z: e.accelerationIncludingGravity.z };
+				socket.emit("data", data, function(){
+					console.log(data)
+				});
 			} else {
 				document.getElementById("app").innerHTML = "device does not support ";
 			}
