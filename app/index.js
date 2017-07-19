@@ -51,7 +51,6 @@ var socket = _socket2.default.connect("http://45.55.188.226:5555");
 // End Geolocation
 
 // Accelerometer
-var x, y, z;
 var data;
 setInterval(function () {
 	if (window.DeviceMotionEvent) {
@@ -59,11 +58,13 @@ setInterval(function () {
 			if (e.acceleration) {
 				data = { x: e.acceleration.x, y: e.acceleration.y, z: e.acceleration.z };
 				socket.emit("data", data, function(){
+					/* eslint-disable no-console */
 					console.log(data);
 				});
 			} else if (e.accelerationIncludingGravity) {
 				data = { x: e.accelerationIncludingGravity.x, y: e.accelerationIncludingGravity.y, z: e.accelerationIncludingGravity.z };
 				socket.emit("data", data, function(){
+					/* eslint-disable no-console */
 					console.log(data)
 				});
 			} else {
