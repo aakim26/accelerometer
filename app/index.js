@@ -10,44 +10,44 @@ function _interopRequireDefault(obj) {
 
 // Sockets
 var socket = _socket2.default.connect("https://45.55.188.226:5555");
-//getLocation();
+// getLocation();
 
-// End sockets
+// // End sockets
 
-// Geolocation 
-function getLocation() {
-	if (navigator.geolocation) {
-		navigator.geolocation.getCurrentPosition(showPosition, showError);
-	} else {
-		alert("Geolocation is not supported by this browser.");
-	}
-}
+// // Geolocation 
+// function getLocation() {
+// 	if (navigator.geolocation) {
+// 		navigator.geolocation.getCurrentPosition(showPosition, showError);
+// 	} else {
+// 		alert("Geolocation is not supported by this browser.");
+// 	}
+// }
 
-function showPosition(position) {
-	socket.emit("location", position.coords.latitude, position.coords.longitude, function () {
-		/* eslint-disable no-console */
-		console.log("location sent");
-	});
-	// var pos = "Latitude: " + position.coords.latitude + 
-	// "<br>Longitude: " + position.coords.longitude;
-}
+// function showPosition(position) {
+// 	socket.emit("location", position.coords.latitude, position.coords.longitude, function () {
+// 		/* eslint-disable no-console */
+// 		console.log("location sent");
+// 	});
+// 	// var pos = "Latitude: " + position.coords.latitude + 
+// 	// "<br>Longitude: " + position.coords.longitude;
+// }
 
-function showError(error) {
-	switch (error.code) {
-	case error.PERMISSION_DENIED:
-		alert("User denied the request for Geolocation.");
-		break;
-	case error.POSITION_UNAVAILABLE:
-		alert("Location information is unavailable.");
-		break;
-	case error.TIMEOUT:
-		alert("The request to get user location timed out.");
-		break;
-	case error.UNKNOWN_ERROR:
-		alert("An unknown error occurred.");
-		break;
-	}
-}
+// function showError(error) {
+// 	switch (error.code) {
+// 	case error.PERMISSION_DENIED:
+// 		alert("User denied the request for Geolocation.");
+// 		break;
+// 	case error.POSITION_UNAVAILABLE:
+// 		alert("Location information is unavailable.");
+// 		break;
+// 	case error.TIMEOUT:
+// 		alert("The request to get user location timed out.");
+// 		break;
+// 	case error.UNKNOWN_ERROR:
+// 		alert("An unknown error occurred.");
+// 		break;
+// 	}
+// }
 // End Geolocation
 
 // Accelerometer
