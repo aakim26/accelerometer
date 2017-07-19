@@ -27,5 +27,8 @@
     "eslint-loader": "^1.9.0",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1"
+  },
+  "dependencies": {
+    "socket.io-client": "^2.0.3"
   }
 }
